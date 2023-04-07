@@ -48,14 +48,12 @@ class Base:
 
     def lag_features(self, df, output, lags):
         df = df[[output]].copy()
-        df.rename(columns={output: "lag"})
 
         data = self.series_to_supervised(df, lags=lags, forecasts=0, dropnan=False)
         self.data = pd.concat([self.data, data], axis="columns")
 
     def forecast_features(self, df, output, forecasts):
         df = df[[output]].copy()
-        df.rename(columns={output: "forecast"})
 
         data = self.series_to_supervised(df, lags=0, forecasts=forecasts, dropnan=False)
         self.data = pd.concat([self.data, data], axis="columns")
