@@ -25,8 +25,8 @@ predictions = model.predictions[model.output[forecast - 1]].copy()
 
 labels = np.unique(predictions.to_numpy())
 cmatrix = confusion_matrix(
-    y_true=predictions["Actual"], 
-    y_pred=predictions["Predicted"],
+    y_true=predictions["Actual"],  # rows
+    y_pred=predictions["Predicted"],  # columns
     labels=labels,
 )
 cmatrix = pd.DataFrame(cmatrix, columns=labels, index=labels)
