@@ -52,9 +52,9 @@ class NNet(Base):
         self.model = dict()
 
         if deep:
-            layer = [64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+            layer = [128, 128, 128, 128, 128, 128, 128, 128, 128, 128]
         else:
-            layer = [64, 64]
+            layer = [128, 128]
 
         for out in self.output:
             X = train.copy().drop(columns=self.output)
